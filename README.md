@@ -1,4 +1,4 @@
-# DotFiles for LunarVim
+# DotFiles for Lunarvim
 
 ## How to Install
 
@@ -14,4 +14,4 @@ to
 .config/lvim 
 ```
 
-Make sure you have installed LunarVim
+Make sure you have Lunarvim installed
