@@ -14,4 +14,4 @@ to
 .config/lvim 
 ```
 
-Make sure you have Lunarvim installed
+Make sure you have [Lunarvim](https://www.lunarvim.org) installed
