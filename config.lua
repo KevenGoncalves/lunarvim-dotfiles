@@ -27,6 +27,10 @@ lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.builtin.lualine.options.component_separators = { left = '', right = '' }
 lvim.builtin.lualine.options.section_separators = { left = '', right = '' }
 lvim.builtin.bufferline.options.offsets = { { filetype = "NvimTree" } }
+lvim.builtin.bufferline.options.separator_style = { "", "" }
+lvim.builtin.bufferline.options.indicator = { style = "underline" }
+
+
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
