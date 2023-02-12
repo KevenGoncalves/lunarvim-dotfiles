@@ -29,6 +29,11 @@ lvim.builtin.lualine.options.section_separators = { left = '', right = '' 
 lvim.builtin.bufferline.options.offsets = { { filetype = "NvimTree" } }
 lvim.builtin.bufferline.options.separator_style = { "", "" }
 lvim.builtin.bufferline.options.indicator = { style = "underline" }
+lvim.icons.ui.ChevronRight = ""
+lvim.builtin.breadcrumbs.options = "󰇘"
+lvim.builtin.lualine.options.icons_enabled = true
+lvim.builtin.treesitter.autotag.enable = true
+lvim.builtin.treesitter.rainbow.enable = true
 
 
 
