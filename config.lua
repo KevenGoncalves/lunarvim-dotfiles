@@ -16,12 +16,17 @@ lvim.colorscheme = "sonokai"
 -- lvim.use_icons = false
 -- vim.opt.showmode = true
 vim.g.sonokai_style = "andromeda"
-
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
 
 vim.opt.relativenumber = true
 lvim.transparent_window = true
 
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
+lvim.builtin.lualine.options.component_separators = { left = '', right = '' }
+lvim.builtin.lualine.options.section_separators = { left = '', right = '' }
+lvim.builtin.bufferline.options.offsets = { { filetype = "NvimTree" } }
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -104,10 +109,6 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
-
--- require('nvim-web-devicons').get_icons()
-
-
 -- generic LSP settings
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
@@ -169,7 +170,7 @@ formatters.setup {
 }
 lvim.format_on_save = {
   enabled = true,
-  pattern = "*.{ts,tsx,js,jsx,lua,html,css,scss,md}",
+  pattern = "*.{ts,tsx,js,jsx,lua,html,css,scss,md,json,yaml}",
   timeout = 1000
 }
 
@@ -383,6 +384,8 @@ lvim.autocommands = {
 
 lvim.builtin.treesitter.rainbow.enable = true
 
+
+
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
 --   pattern = { "*.json", "*.jsonc" },
@@ -410,13 +413,13 @@ require 'nvim-web-devicons'.setup {
     },
     js = {
       icon = "󰌞",
-      color = "#cbcb41",
+      color = "#EFD81D",
       cterm_color = "103",
       name = "Js"
     },
     ts = {
       icon = "󰛦",
-      color = "#519aba",
+      color = "#0076C6",
       cterm_color = "104",
       name = "Ts",
     }, [".gitignore"] = {
@@ -449,6 +452,12 @@ require 'nvim-web-devicons'.setup {
       cterm_color = 100,
       name = "EslintRC"
     },
+    ["tsconfig.json"] = {
+      icon = "",
+      color = "#0076C6",
+      cterm_color = 105,
+      name = "TSConfig"
+    }
   };
   -- globally enable different highlight colors per icon (default to true)
   -- if set to false all icons will have the default icon's color
