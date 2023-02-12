@@ -14,7 +14,7 @@ lvim.colorscheme = "sonokai"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 -- vim.opt.showmode = true
--- vim.g.sonokai_style = "andromeda"
+vim.g.sonokai_style = "andromeda"
 vim.g.sonokai_transparent_background = 2
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
@@ -426,13 +426,13 @@ require 'nvim-web-devicons'.setup {
     },
     js = {
       icon = "󰌞",
-      color = "#EFD81D",
+      color = "#e9c462",
       cterm_color = "103",
       name = "Js"
     },
     ts = {
       icon = "󰛦",
-      color = "#0076C6",
+      color = "#65bad6",
       cterm_color = "104",
       name = "Ts",
     }, [".gitignore"] = {
@@ -467,10 +467,21 @@ require 'nvim-web-devicons'.setup {
     },
     ["tsconfig.json"] = {
       icon = "",
-      color = "#0076C6",
+      color = "#65bad6",
       cterm_color = 105,
       name = "TSConfig"
-    }
+    },
+    ["node_modules"] = {
+      icon = "",
+      color = "#E8274B",
+      cterm_color = "161",
+      name = "NodeModules",
+    }, [".env"] = {
+      icon = "",
+      color = "#e9c462",
+      cterm_color = "226",
+      name = "Env",
+    },
   };
   -- globally enable different highlight colors per icon (default to true)
   -- if set to false all icons will have the default icon's color
