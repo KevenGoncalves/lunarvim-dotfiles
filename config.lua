@@ -10,18 +10,20 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save.enabled = false
 lvim.colorscheme = "sonokai"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 -- vim.opt.showmode = true
-vim.g.sonokai_style = "andromeda"
+-- vim.g.sonokai_style = "andromeda"
+vim.g.sonokai_transparent_background = 2
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 
+
 vim.opt.relativenumber = true
 lvim.transparent_window = true
+
 
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.builtin.lualine.options.component_separators = { left = '', right = '' }
@@ -30,7 +32,9 @@ lvim.builtin.bufferline.options.offsets = { { filetype = "NvimTree" } }
 lvim.builtin.bufferline.options.separator_style = { "", "" }
 lvim.builtin.bufferline.options.indicator = { style = "underline" }
 lvim.icons.ui.ChevronRight = ""
-lvim.builtin.breadcrumbs.options = "󰇘"
+lvim.builtin.breadcrumbs.options.depth_limit_indicator = "󰇘"
+lvim.builtin.breadcrumbs.options.separator = ""
+-- lvim.builtin.breadcrumbs.winbar_filetype_exclude[25] = "MiniMap"
 lvim.builtin.lualine.options.icons_enabled = true
 lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.rainbow.enable = true
