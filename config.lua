@@ -11,34 +11,43 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.colorscheme = "sonokai"
+-- lvim.colorscheme = "rose-pine"
+-- lvim.colorscheme = "dracula"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 -- vim.opt.showmode = true
 vim.g.sonokai_style = "andromeda"
 vim.g.sonokai_transparent_background = 2
 vim.opt.foldmethod = "expr"
+-- vim.opt.foldmethod = "syntax"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 
+-- require("dracula").setup({
+-- transparent_bg = true
+-- })
+
 
 vim.opt.relativenumber = true
-lvim.transparent_window = true
-
-
+vim.opt.termguicolors = true
+lvim.builtin.indentlines.options.use_treesitter = true
+lvim.builtin.indentlines.options.show_current_context = true
+lvim.builtin.indentlines.options.show_trailing_blankline_indent = true
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.builtin.lualine.options.component_separators = { left = '', right = '' }
 lvim.builtin.lualine.options.section_separators = { left = '', right = '' }
 lvim.builtin.bufferline.options.offsets = { { filetype = "NvimTree" } }
 lvim.builtin.bufferline.options.separator_style = { "", "" }
-lvim.builtin.bufferline.options.indicator = { style = "underline" }
+-- lvim.builtin.bufferline.options.indicator = { style = "underline" }
 lvim.icons.ui.ChevronRight = ""
 lvim.builtin.breadcrumbs.options.depth_limit_indicator = "󰇘"
-lvim.builtin.breadcrumbs.options.separator = ""
+lvim.builtin.breadcrumbs.options.separator = "  "
 -- lvim.builtin.breadcrumbs.winbar_filetype_exclude[25] = "MiniMap"
 lvim.builtin.lualine.options.icons_enabled = true
 lvim.builtin.treesitter.autotag.enable = true
-lvim.builtin.treesitter.rainbow.enable = true
-
+lvim.builtin.nvimtree.setup.renderer.indent_markers.enable = true
+lvim.builtin.nvimtree.setup.diagnostics.show_on_dirs = true
+lvim.builtin.nvimtree.setup.view.hide_root_folder = false
 
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -55,6 +64,7 @@ lvim.keys.normal_mode["<S-t>"] = ":SymbolsOutline<CR>"
 lvim.keys.normal_mode["<S-y>"] = ":TroubleToggle<CR>"
 lvim.keys.normal_mode["m"] = ":CodeActionMenu<CR>"
 lvim.keys.normal_mode["M"] = ":lua MiniMap.toggle()<CR>"
+lvim.keys.normal_mode["<C-;>"] = ":noh <CR>"
 
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
@@ -117,6 +127,9 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "svelte",
+  "astro",
+  "prisma"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -167,8 +180,10 @@ lvim.builtin.treesitter.highlight.enable = true
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "prettier",
-    filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact", "html", "css", "scss" } },
-  { command = "markdownlint", filetypes = { "markdown" } }
+    filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact", "html", "css", "scss", "svelte",
+      "astro" } },
+  { command = "markdownlint", filetypes = { "markdown" } },
+  { command = "yamlfmt", filetypes = { "yaml" } }
   --   { command = "black", filetypes = { "python" } },
   --   { command = "isort", filetypes = { "python" } },
   --   {
@@ -183,7 +198,7 @@ formatters.setup {
 }
 lvim.format_on_save = {
   enabled = true,
-  pattern = "*.{ts,tsx,js,jsx,lua,html,css,scss,md,json,yaml}",
+  pattern = "*.{ts,tsx,js,jsx,lua,html,css,scss,md,json,yaml,yml,prisma,astro,svelte}",
   timeout = 1000
 }
 
@@ -214,11 +229,18 @@ linters.setup {
 -- Additional Plugins
 lvim.plugins = {
   {
+    'Mofiqul/dracula.nvim'
+  },
+  {
+    'rose-pine/neovim'
+  },
+  {
     "cpea2506/one_monokai.nvim"
   },
   {
     'marko-cerovac/material.nvim'
-  }, {
+  },
+  {
     "sainnhe/sonokai"
   },
   {
@@ -274,6 +296,8 @@ lvim.plugins = {
         },
       })
     end,
+  }, {
+    "mattn/emmet-vim"
   },
   {
     "sindrets/diffview.nvim",
@@ -291,7 +315,8 @@ lvim.plugins = {
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
-      require("colorizer").setup({ "css", "scss", "html", "javascript" }, {
+      require("colorizer").setup({ "css", "scss", "html", "javascript", "typescript", "typescriptreact",
+        "javascriptreact", "svelte", "astro" }, {
         RGB = true, -- #RGB hex codes
         RRGGBB = true, -- #RRGGBB hex codes
         RRGGBBAA = true, -- #RRGGBBAA hex codes
@@ -346,7 +371,7 @@ lvim.plugins = {
   {
     'weilbith/nvim-code-action-menu',
     cmd = 'CodeActionMenu',
-  }
+  },
 }
 
 
@@ -481,6 +506,18 @@ require 'nvim-web-devicons'.setup {
       color = "#e9c462",
       cterm_color = "226",
       name = "Env",
+    },
+    ["Dockerfile"] = {
+      icon = "",
+      color = "#2497ED",
+      cterm_color = "59",
+      name = "Dockerfile",
+    },
+    [".dockerignore"] = {
+      icon = "",
+      color = "#2497ED",
+      cterm_color = "59",
+      name = "Dockerfile",
     },
   };
   -- globally enable different highlight colors per icon (default to true)
