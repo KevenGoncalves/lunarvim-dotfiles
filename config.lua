@@ -10,14 +10,22 @@ vim.opt.scrolloff = 8    -- is one of my fav
 vim.opt.spell = false
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
-vim.opt.foldmethod = "expr"
+
+
+vim.opt.foldlevel = 99
+-- vim.opt.foldcolumn = 'auto'
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+-- vim.opt.fillchars = {
+--   foldopen = "",
+--   foldsep = "│",
+--   foldclose = "",
+-- }
+
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.undodir = vim.fn.stdpath "cache" .. "/undo"
 vim.opt.undofile = true           -- enable persistent undo
 vim.fn.setenv("FIG_TERM", nil)
--- vim.opt.foldmethod = "syntax"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldenable = false
 
 -- general
 lvim.log.level = "info"
@@ -45,7 +53,9 @@ lvim.keys.normal_mode["<S-y>"] = ":TroubleToggle<CR>"
 lvim.keys.normal_mode["m"] = ":CodeActionMenu<CR>"
 lvim.keys.normal_mode["M"] = ":lua MiniMap.toggle()<CR>"
 lvim.keys.normal_mode["<C-;>"] = ":noh <CR>"
-
+lvim.keys.normal_mode[","] = ":lua require('nvim-peekup').peekup_open()<CR>"
+lvim.keys.normal_mode["zR"] = ":lua require('ufo').openAllFolds()<CR>"
+lvim.keys.normal_mode["zM"] = ":lua require('ufo').closeAllFolds()<CR>"
 -- -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
@@ -58,6 +68,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
+lvim.builtin.nvimtree.setup.update_focused_file = {}
 lvim.builtin.dap.active = true
 
 
@@ -85,34 +96,33 @@ lvim.builtin.lualine.options.icons_enabled = true
 lvim.builtin.lualine.options.ignore_focus = { "NvimTree", "alpha", "toggleterm", "packer" }
 lvim.builtin.lualine.options.theme = "catppuccin"
 --bufferline
-lvim.builtin.bufferline.options.offsets = {
-  {
-    filetype = "NvimTree",
-    text = function()
-      local function mysplit(inputstr, sep)
-        if sep == nil then
-          sep = "%s"
-        end
-        local t = {}
-        for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
-          table.insert(t, str)
-        end
-        return t
+lvim.builtin.bufferline.options.offsets = { {
+  filetype = "NvimTree",
+  text = function()
+    local function mysplit(inputstr, sep)
+      if sep == nil then
+        sep = "%s"
       end
-
-      local mytable = mysplit(vim.fn.getcwd(), "/")
-
-      local function tablelength(T)
-        local count = 0
-        for _ in pairs(T) do count = count + 1 end
-        return count
+      local t = {}
+      for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+        table.insert(t, str)
       end
+      return t
+    end
 
-      return mytable[tablelength(mytable)]
-    end,
-    highlight = "Directory",
-    separator = true
-  } }
+    local mytable = mysplit(vim.fn.getcwd(), "/")
+
+    local function tablelength(T)
+      local count = 0
+      for _ in pairs(T) do count = count + 1 end
+      return count
+    end
+
+    return mytable[tablelength(mytable)]
+  end,
+  highlight = "Directory",
+  separator = true
+} }
 lvim.builtin.bufferline.highlights =
     require("catppuccin.groups.integrations.bufferline").get()
 -- lvim.builtin.bufferline.options.separator_style = { "", "" }
@@ -120,16 +130,16 @@ lvim.builtin.bufferline.highlights =
 
 
 -- icons and breadcrumbs
-lvim.icons.ui.ChevronRight = ""
+lvim.icons.ui.ChevronRight = ""
 lvim.builtin.breadcrumbs.options.depth_limit_indicator = "󰇘"
-lvim.builtin.breadcrumbs.options.separator = "  "
+lvim.builtin.breadcrumbs.options.separator = "  "
 -- lvim.builtin.breadcrumbs.winbar_filetype_exclude[25] = "MiniMap"
 
 --treesitter
 lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.nvimtree.setup.renderer.indent_markers.enable = true
 lvim.builtin.nvimtree.setup.diagnostics.show_on_dirs = true
-lvim.builtin.nvimtree.setup.view.hide_root_folder = true
+lvim.builtin.nvimtree.setup.view.hide_root_folder = false
 lvim.builtin.treesitter.highlight.enable = true
 
 
@@ -327,6 +337,32 @@ lvim.plugins = {
       "rcarriga/nvim-notify",
     }
   },
+  {
+    "gennaro-tedesco/nvim-peekup"
+  },
+  {
+    "sitiom/nvim-numbertoggle"
+  },
+  {
+    'nacro90/numb.nvim'
+  },
+  {
+    'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'
+  },
+  {
+    'yaocccc/nvim-foldsign',
+    event = 'CursorHold',
+    config = function()
+      require("nvim-foldsign").setup({
+        foldsigns = {
+          open = '',        -- mark the beginning of a fold
+          close = '',       -- show a closed fold
+          seps = { '┃', '┃' }, -- open fold middle marker
+        }
+      })
+    end
+  }
+
 }
 
 lvim.builtin.which_key.mappings["t"] = {
@@ -372,7 +408,6 @@ lvim.autocommands = {
     },
   },
 }
-
 
 
 lvim.builtin.treesitter.rainbow.enable = true
@@ -472,6 +507,12 @@ require 'nvim-web-devicons'.setup {
       cterm_color = 102,
       name = "TailwindConfigJS"
     },
+    ["tailwind.config.cjs"] = {
+      icon = "󱏿",
+      color = "#38BDF8",
+      cterm_color = 102,
+      name = "TailwindConfigJS"
+    },
     [".eslintrc.js"] = {
       icon = "󰱺",
       color = "#4A31C3",
@@ -540,6 +581,25 @@ require("noice").setup({
       ["vim.lsp.util.stylize_markdown"] = true,
       ["cmp.entry.get_documentation"] = true,
     },
+    hover = {
+      enabled = true,
+    },
+    documentation = {
+      view = "hover",
+      opts = {
+        lang = "markdown",
+        replace = true,
+        render = "plain",
+        format = { "{message}" },
+        win_options = { concealcursor = "n", conceallevel = 3 },
+      },
+    },
+  },
+  smart_move = {
+    -- noice tries to move out of the way of existing floating windows.
+    enabled = true, -- you can disable this behaviour here
+    -- add any filetypes here, that shouldn't trigger smart move.
+    excluded_filetypes = { "cmp_menu", "cmp_docs", "notify" },
   },
   -- you can enable a preset for easier configuration
   presets = {
@@ -557,6 +617,21 @@ require("noice").setup({
     view_history = "notify",     -- view for :messages
     view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
   },
+  views = {
+    hover = {
+      size = {
+        width = 40,
+        height = 7,
+      },
+      focusable = true,
+    },
+    notify = {
+      merge = true,
+      render = "compact",
+      stages = "fade",
+      width = 10
+    }
+  }
 })
 
 
@@ -597,3 +672,40 @@ code_actions.setup {
     filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "astro", "svelte" },
   },
 }
+
+require('numb').setup()
+
+local handler = function(virtText, lnum, endLnum, width, truncate)
+  local newVirtText = {}
+  local suffix = ('  %d '):format(endLnum - lnum)
+  local sufWidth = vim.fn.strdisplaywidth(suffix)
+  local targetWidth = width - sufWidth
+  local curWidth = 0
+  for _, chunk in ipairs(virtText) do
+    local chunkText = chunk[1]
+    local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+    if targetWidth > curWidth + chunkWidth then
+      table.insert(newVirtText, chunk)
+    else
+      chunkText = truncate(chunkText, targetWidth - curWidth)
+      local hlGroup = chunk[2]
+      table.insert(newVirtText, { chunkText, hlGroup })
+      chunkWidth = vim.fn.strdisplaywidth(chunkText)
+      -- str width returned from truncate() may less than 2nd argument, need padding
+      if curWidth + chunkWidth < targetWidth then
+        suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+      end
+      break
+    end
+    curWidth = curWidth + chunkWidth
+  end
+  table.insert(newVirtText, { suffix, 'MoreMsg' })
+  return newVirtText
+end
+
+require('ufo').setup({
+  provider_selector = function()
+    return { 'treesitter', 'indent' }
+  end,
+  fold_virt_text_handler = handler
+})
