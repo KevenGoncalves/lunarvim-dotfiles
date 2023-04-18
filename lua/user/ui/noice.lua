@@ -39,7 +39,7 @@ require("noice").setup({
     lsp_doc_border = true,        -- add a border to hover docs and signature help
   },
   messages = {
-    enabled = false,             -- enables the Noice messages UI
+    enabled = true,              -- enables the Noice messages UI
     view = false,                -- default view for messages
     view_error = "notify",       -- view for errors
     view_warn = "notify",        -- view for warnings

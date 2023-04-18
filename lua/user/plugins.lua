@@ -97,9 +97,10 @@ lvim.plugins = {
     cmd = "TroubleToggle",
   },
   {
-    "tpope/vim-surround",
-    setup = function()
-      vim.o.timeoutlen = 1000
+    "kylechui/nvim-surround",
+    tag = "*",
+    config = function()
+      require("nvim-surround").setup {}
     end
   },
   {
@@ -156,5 +157,33 @@ lvim.plugins = {
     config = function()
       require("zen-mode").setup {}
     end
-  }
+  },
+  {
+    "jose-elias-alvarez/typescript.nvim",
+    config = function()
+      require("typescript").setup {}
+    end
+  },
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    module = "persistence",
+    config = function()
+      require("persistence").setup {
+        dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),
+        options = { "buffers", "curdir", "tabpages", "winsize" },
+      }
+    end,
+  },
+  {
+    'ThePrimeagen/harpoon'
+  },
+  {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  },
 }
