@@ -12,6 +12,9 @@ lvim.autocommands = {
           "TelescopePrompt",
           "alpha",
           "netrw",
+          "Trouble",
+          "peek",
+          "vim"
         }
 
         local map = require('mini.map')
