@@ -3,7 +3,7 @@ linters.setup {
   { command = "markdownlint", filetypes = { "markdown" } },
   {
     command = "eslint_d",
-    filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "html" },
+    filetypes = { "typescript", "svelte", "astro", "typescriptreact", "javascript", "javascriptreact", "html" },
   },
   { command = "gitlint",      filetypes = { "git" } },
   { command = "jsonlint",     filetypes = { "json" } },
@@ -16,4 +16,18 @@ code_actions.setup {
     exe = "eslint_d",
     filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "astro", "svelte" },
   },
+}
+
+require 'lspconfig'.eslint.setup {
+  -- Copied from nvim-lspconfig/lua/lspconfig/server_conigurations/eslint.js
+  root_dir = util.root_pattern(
+    '.eslintrc',
+    '.eslintrc.js',
+    '.eslintrc.cjs',
+    '.eslintrc.yaml',
+    '.eslintrc.yml',
+    '.eslintrc.json'
+  -- Disabled to prevent "No ESLint configuration found" exceptions
+  -- 'package.json',
+  ),
 }
