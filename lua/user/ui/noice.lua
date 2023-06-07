@@ -11,7 +11,12 @@ require("noice").setup({
       ["cmp.entry.get_documentation"] = true,
     },
     hover = {
-      enabled = true,
+      -- temporary
+      enabled = false,
+    },
+    signature = {
+      -- temporary
+      enabled = false
     },
     documentation = {
       view = "hover",
@@ -41,6 +46,7 @@ require("noice").setup({
   messages = {
     enabled = true,              -- enables the Noice messages UI
     view = false,                -- default view for messages
+    -- view = "notify",             -- default view for messages
     view_error = "notify",       -- view for errors
     view_warn = "notify",        -- view for warnings
     view_history = "notify",     -- view for :messages

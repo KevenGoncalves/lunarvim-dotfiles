@@ -8,7 +8,6 @@ lvim.builtin.which_key.mappings["t"] = {
   r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
 }
 
-
 lvim.builtin.which_key.mappings["P"] = {
   name = "Persistance",
   r = { "<cmd>:lua require('persistence').load()<cr>", "restore" },
@@ -16,7 +15,7 @@ lvim.builtin.which_key.mappings["P"] = {
   s = { "<cmd>:lua require('persistence').stop()<cr>", "stop" }
 }
 
-lvim.builtin.which_key.mappings["h"] = {
+lvim.builtin.which_key.mappings["a"] = {
   name = "Harpoon",
   m = { ':lua require("harpoon.mark").add_file()<cr>', "Mark file" },
   t = { ':lua require("harpoon.ui").toggle_quick_menu()<cr>', "Toggle UI" },

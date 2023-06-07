@@ -1,5 +1,5 @@
 lvim.plugins = {
-  { "catppuccin/nvim", as = "catppuccin" },
+  { "catppuccin/nvim", name = "catppuccin" },
   {
     "echasnovski/mini.map",
     branch = "stable",
@@ -98,7 +98,7 @@ lvim.plugins = {
   },
   {
     "kylechui/nvim-surround",
-    tag = "*",
+    version = "*",
     config = function()
       require("nvim-surround").setup {}
     end
@@ -109,14 +109,14 @@ lvim.plugins = {
   },
   {
     "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
     config = function()
       require("todo-comments").setup {}
     end
   },
   {
     "folke/noice.nvim",
-    requires = {
+    dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     }
@@ -134,7 +134,7 @@ lvim.plugins = {
     end
   },
   {
-    'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'
+    'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async'
   },
   {
     'yaocccc/nvim-foldsign',
@@ -167,7 +167,7 @@ lvim.plugins = {
   {
     "folke/persistence.nvim",
     event = "BufReadPre",
-    module = "persistence",
+    lazy = false,
     config = function()
       require("persistence").setup {
         dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),

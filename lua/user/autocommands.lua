@@ -1,18 +1,18 @@
 lvim.autocommands = {
   {
-    { "BufEnter", "Filetype" },
+    { "bufenter", "filetype" },
     {
-      desc = "Open mini.map and exclude some filetypes",
+      desc = "open mini.map and exclude some filetypes",
       pattern = { "*" },
       callback = function()
         local exclude_ft = {
           "qf",
-          "NvimTree",
+          "nvimtree",
           "toggleterm",
-          "TelescopePrompt",
+          "telescopeprompt",
           "alpha",
           "netrw",
-          "Trouble",
+          "trouble",
           "peek",
           "vim"
         }
