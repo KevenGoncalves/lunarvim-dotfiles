@@ -25,7 +25,7 @@ lvim.builtin.bufferline.options.offsets = { {
   highlight = "Directory",
   separator = true,
   text_align = "left"
-}, { filetype = "toggleterm" }, { filetype = "Trouble" } }
+} }
 lvim.builtin.bufferline.highlights = require("catppuccin.groups.integrations.bufferline").get()
 -- lvim.builtin.bufferline.options.separator_style = "slant"
 lvim.builtin.bufferline.options.always_show_bufferline = true

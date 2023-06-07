@@ -46,10 +46,10 @@ lvim.builtin.which_key.mappings["H"] = {
 lvim.builtin.which_key.mappings["n"] = {
   name = "Null-ls",
   i = { ':NullLsInfo<CR>', "null info" },
-  e = { ':lua require("null-ls").disable({"eslint_d"})<CR>', "disable Eslint" },
-  E = { ':lua require("null-ls").enable({"eslint_d"})<CR>', "enable Eslint" },
-  p = { ':lua require("null-ls").disable({"prettier"})<CR>', "disable prettier" },
-  P = { ':lua require("null-ls").enable({"prettier"})<CR>', "enable Eslint" },
+  e = { ':lua require("null-ls").toggle({name = "eslint_d"})<CR>', "toggle Eslint" },
+  p = { ':lua require("null-ls").toggle({name = "prettier"})<CR>', "toggle Prettier" },
+  m = { ':lua require("null-ls").toggle({name = "mypy"})<CR>', "toggle MyPy" },
+  f = { ':lua require("null-ls").toggle({name = "flake8"})<CR>', "toggle Flake8" },
 }
 
 lvim.builtin.which_key.mappings["m"] = {

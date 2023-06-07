@@ -12,6 +12,7 @@ lvim.keys.normal_mode["<C-,>"] = ":lua require('nvim-peekup').peekup_open()<CR>"
 lvim.keys.normal_mode[","] = ":HopWord<CR>"
 lvim.keys.normal_mode["zR"] = ":lua require('ufo').openAllFolds()<CR>"
 lvim.keys.normal_mode["zM"] = ":lua require('ufo').closeAllFolds()<CR>"
+lvim.keys.normal_mode["\\"] = '%'
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["W"] = { "<cmd>noautocmd w<cr>", "Save without formatting" }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
