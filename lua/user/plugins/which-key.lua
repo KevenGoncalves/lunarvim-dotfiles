@@ -46,7 +46,7 @@ lvim.builtin.which_key.mappings["n"] = {
   name = "Null-ls",
   i = { ':NullLsInfo<CR>', "null info" },
   e = { ':lua require("null-ls").toggle({name = "eslint_d"})<CR>', "toggle Eslint" },
-  p = { ':lua require("null-ls").toggle({name = "prettier"})<CR>', "toggle Prettier" },
+  p = { ':lua require("null-ls").toggle({name = "prettierd"})<CR>', "toggle Prettier" },
   m = { ':lua require("null-ls").toggle({name = "mypy"})<CR>', "toggle MyPy" },
   f = { ':lua require("null-ls").toggle({name = "flake8"})<CR>', "toggle Flake8" },
 }
@@ -57,3 +57,22 @@ lvim.builtin.which_key.mappings["m"] = {
   s = { ":SymbolsOutline<CR>", "Toggle Symbols" },
   t = { ":TroubleToggle<CR>", "Toggle Trouble" }
 }
+
+lvim.builtin.which_key.mappings['c'] = {
+  name = "ChatGPT",
+  n = { ":ChatGPT<CR>", "Normal mode" },
+  a = { ":ChatGPTActAs<CR>", "Act as" },
+  c = { ":ChatGPTCompleteCode<CR>", "Complete code" },
+  r = { ":ChatGPTRun<CR>", "Run" },
+}
+
+lvim.builtin.which_key.mappings['C'] = {
+  mode = "v",
+  name = "ChatGPT",
+  e = { function()
+    require("chatgpt").edit_with_instructions()
+  end, "Edit with Instructions" },
+}
+
+lvim.builtin.which_key.mappings["G"] = { ":MPToggle<CR>", "Glow Markdown" }
+lvim.builtin.which_key.mappings["W"] = { ":noautocmd w<CR>", "Save without format" }

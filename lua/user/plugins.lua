@@ -68,9 +68,6 @@ lvim.plugins = {
     end,
   },
   {
-    "p00f/nvim-ts-rainbow",
-  },
-  {
     "NvChad/nvim-colorizer.lua",
   },
   {
@@ -150,9 +147,6 @@ lvim.plugins = {
     end
   },
   {
-    'madox2/vim-ai'
-  },
-  {
     "folke/zen-mode.nvim",
     config = function()
       require("zen-mode").setup {}
@@ -184,6 +178,31 @@ lvim.plugins = {
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
       require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  },
+  {
+    "jwalton512/vim-blade"
+  },
+  {
+    "HiPhish/nvim-ts-rainbow2",
+  },
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
+  {
+    '0x00-ketsu/markdown-preview.nvim',
+    ft = { 'md', 'markdown', 'mkd', 'mkdn', 'mdwn', 'mdown', 'mdtxt', 'mdtext', 'rmd', 'wiki' },
+    config = function()
+      require('markdown-preview').setup {}
     end
   },
 }

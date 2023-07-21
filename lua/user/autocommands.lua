@@ -14,7 +14,9 @@ lvim.autocommands = {
           "netrw",
           "trouble",
           "peek",
-          "vim"
+          "vim",
+          "markdownpreview",
+          "markdown"
         }
 
         local map = require('mini.map')

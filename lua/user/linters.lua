@@ -7,14 +7,15 @@ linters.setup {
   },
   { command = "gitlint",      filetypes = { "git" } },
   { command = "jsonlint",     filetypes = { "json" } },
-  { command = "yamllint",     filetypes = { "yaml" } },
+  { command = "yamllint",     filetypes = { "yaml" }, },
   -- { command = "pylint",       filetypes = { "python" } },
   -- { command = "pydocstyle",   filetypes = { "python" } },
   { command = "flake8",       filetypes = { "python" } },
-  { command = "mypy",         filetypes = { "python" } },
+  -- { command = "mypy",         filetypes = { "python" } },
   { command = "phpstan",      filetypes = { "php" } },
   -- { command = "phpmd",        filetypes = { "php" } },
   -- { command = "phpcs",        filetypes = { "php" } },
+  -- { command = "sqlfluff",     filetypes = { "sql" },     args = { "--dialect mysql" } }
 }
 
 local code_actions = require "lvim.lsp.null-ls.code_actions"
@@ -23,11 +24,9 @@ code_actions.setup {
     exe = "eslint_d",
     filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "astro", "svelte" },
   },
-
-  -- { exec = "mypy", filetypes = { "python" } },
   -- {
-  --   exe = "phpcs",
-  --   filetypes = { "php" }
+  --   exe = "sqlls",
+  --   filetypes = { "sql" },
   -- },
 }
 

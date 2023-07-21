@@ -16,6 +16,12 @@ require 'nvim-web-devicons'.setup {
       cterm_color = "103",
       name = "Js"
     },
+    go = {
+      icon = "󰟓",
+      color = "#27A5B4",
+      cterm_color = "144",
+      name = "Go"
+    },
     ts = {
       icon = "󰛦",
       color = "#65bad6",
@@ -46,6 +52,12 @@ require 'nvim-web-devicons'.setup {
       cterm_color = 101,
       name = "PnpmLockYaml"
     },
+    ["taskfile.yml"] = {
+      icon = "󰆦",
+      color = "#94DFD8",
+      cterm_color = 108,
+      name = "Taskfile"
+    },
     ["tailwind.config.js"] = {
       icon = "󱏿",
       color = "#38BDF8",
@@ -70,6 +82,24 @@ require 'nvim-web-devicons'.setup {
       cterm_color = 105,
       name = "TSConfig"
     },
+    ["*.env.*"] = {
+      icon = "",
+      color = "#e9c462",
+      cterm_color = "226",
+      name = "Env",
+    },
+    ["*.env"] = {
+      icon = "",
+      color = "#e9c462",
+      cterm_color = "226",
+      name = "Env",
+    },
+    [".env.*"] = {
+      icon = "",
+      color = "#e9c462",
+      cterm_color = "226",
+      name = "Env",
+    },
     [".env"] = {
       icon = "",
       color = "#e9c462",
@@ -87,6 +117,30 @@ require 'nvim-web-devicons'.setup {
       color = "#2497ED",
       cterm_color = "59",
       name = "Dockerfile",
+    },
+    ["go.mod"] = {
+      icon = "󰟓",
+      color = "#E8337A",
+      cterm_color = "145",
+      name = "GoMod"
+    },
+    ["go.sum"] = {
+      icon = "󰟓",
+      color = "#E8337A",
+      cterm_color = "145",
+      name = "GoSum"
+    },
+    makefile = {
+      icon = "",
+      color = "#F94452",
+      cterm_color = 106,
+      name = "Makefile"
+    },
+    ["cmakelists.txt"] = {
+      icon = "󰔷",
+      color = "#F94452",
+      cterm_color = 106,
+      name = "CMakeLists"
     },
   },
   color_icons = true,
