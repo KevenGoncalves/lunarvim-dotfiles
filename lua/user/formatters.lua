@@ -2,8 +2,16 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   {
     command = "prettierd",
-    filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact", "html", "css", "scss", "svelte",
-      "astro" }
+    filetypes = {
+      "javascript",
+      "typescript",
+      "typescriptreact",
+      "javascriptreact",
+      "html",
+      "css",
+      "scss",
+      "svelte",
+    }
   },
   { command = "markdownlint",    filetypes = { "markdown" } },
   { command = "yamlfmt",         filetypes = { "yaml" } },

@@ -40,7 +40,13 @@ require 'nvim-web-devicons'.setup {
       cterm_color = "59",
       name = "GitIgnore",
     },
-    [".eslintrc.json"] = {
+    [".eslintrc.cjs"] = {
+      icon = "󰱺",
+      color = "#4A31C3",
+      cterm_color = 100,
+      name = "EslintRC"
+    },
+    [".eslintignore"] = {
       icon = "󰱺",
       color = "#4A31C3",
       cterm_color = 100,
@@ -142,6 +148,25 @@ require 'nvim-web-devicons'.setup {
       cterm_color = 106,
       name = "CMakeLists"
     },
+    [".prettierrc"] = {
+      icon = "󰏣",
+      color = "#fbc04e",
+      cterm_color = 107,
+      name = "Prettier"
+    },
+    [".prettierignore"] = {
+      icon = "󰏣",
+      color = "#fbc04e",
+      cterm_color = 107,
+      name = "Prettier"
+    },
+    postcss = {
+      icon = "",
+      color = "#d7380a",
+      cterm_color = 108,
+      name = "PostCSS"
+    }
+
   },
   color_icons = true,
   default = true,

@@ -10,6 +10,12 @@ require("catppuccin").setup({
     notify = true,
     mini = true,
     noice = true,
+    hop = true,
+    harpoon = true,
+    ts_rainbow2 = true,
+    mason = true,
+    lsp_trouble = false,
+    which_key = false,
     navic = {
       enabled = true,
       custom_bg = "NONE"

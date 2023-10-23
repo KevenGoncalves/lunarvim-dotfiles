@@ -76,3 +76,4 @@ lvim.builtin.which_key.mappings['C'] = {
 
 lvim.builtin.which_key.mappings["G"] = { ":MPToggle<CR>", "Glow Markdown" }
 lvim.builtin.which_key.mappings["W"] = { ":noautocmd w<CR>", "Save without format" }
+lvim.builtin.which_key.mappings["D"] = { ":DBUIToggle<CR>", "Database UI" }

@@ -29,4 +29,14 @@ lvim.autocommands = {
       end,
     },
   },
+  -- {
+  --   { "bufenter", "filetype" },
+  --   {
+  --     desc = "starting dabot autocomplete",
+  --     pattern = { "*.sql", "*.mysql", "*.plsql" },
+  --     callback = function()
+  --       require('cmp').setup.buffer({ sources = { { name = 'vim-dadbod-completion' } } })
+  --     end
+  --   }
+  -- }
 }

@@ -6,6 +6,8 @@ reload("user.keymaps")
 reload("user.formatters")
 reload("user.linters")
 reload("user.autocommands")
+reload("user.dap")
+reload("user.lsp")
 
 -- plugin imports
 reload("user.plugins.lualine")

@@ -8,6 +8,7 @@ lvim.plugins = {
       local map = require('mini.map')
       map.setup({
         integrations = {
+          map.gen_integration.gitsigns(),
           map.gen_integration.builtin_search(),
           map.gen_integration.diagnostic({
             error = 'DiagnosticFloatingError',
@@ -205,4 +206,18 @@ lvim.plugins = {
       require('markdown-preview').setup {}
     end
   },
+  {
+    "olexsmir/gopher.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+  {
+    "tpope/vim-dadbod",
+    dependencies = {
+      "kristijanhusak/vim-dadbod-ui",
+      -- "kristijanhusak/vim-dadbod-completion"
+    },
+  }
 }

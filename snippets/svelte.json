@@ -1,0 +1,12 @@
+{
+  "svelte-ts-script": {
+    "prefix": "s-ts-script",
+    "body": "<script lang='ts'>\n${1:}\n</script>",
+    "description": "use the svelte script with lang ts"
+  },
+  "lang-ts": {
+    "prefix": "lang-ts",
+    "body": "lang='ts'",
+    "description": "use the lang ts"
+  }
+}

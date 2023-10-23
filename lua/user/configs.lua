@@ -17,3 +17,15 @@ vim.fn.setenv("FIG_TERM", nil)
 vim.g.code_action_menu_show_details = false
 vim.g.code_action_menu_show_diff = false
 vim.g.code_action_menu_show_action_kind = true
+
+vim.g.db_ui_use_nerd_fonts = 1
+vim.g.db_ui_icons = {
+  collapsed = '',
+  expanded = ''
+}
+
+vim.filetype.add({
+  extension = {
+    postcss = 'css',
+  }
+})

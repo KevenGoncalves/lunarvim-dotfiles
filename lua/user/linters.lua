@@ -3,7 +3,7 @@ linters.setup {
   { command = "markdownlint", filetypes = { "markdown" } },
   {
     command = "eslint_d",
-    filetypes = { "typescript", "svelte", "astro", "typescriptreact", "javascript", "javascriptreact", "html" },
+    filetypes = { "typescript", "svelte", "typescriptreact", "javascript", "javascriptreact", "html" },
   },
   { command = "gitlint",      filetypes = { "git" } },
   { command = "jsonlint",     filetypes = { "json" } },
