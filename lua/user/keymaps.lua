@@ -13,6 +13,11 @@ lvim.keys.normal_mode["zR"] = ":lua require('ufo').openAllFolds()<CR>"
 lvim.keys.normal_mode["zM"] = ":lua require('ufo').closeAllFolds()<CR>"
 lvim.keys.normal_mode["\\"] = '%'
 lvim.keys.visual_mode["\\"] = '%'
+lvim.keys.normal_mode["ff"] = ":lua vim.diagnostic.open_float()<CR>"
+lvim.keys.normal_mode["fj"] = ":lua vim.diagnostic.goto_next()<CR>"
+lvim.keys.normal_mode["fk"] = ":lua vim.diagnostic.goto_prev()<CR>"
+lvim.keys.normal_mode["fc"] = ":lua vim.lsp.codelens.run()<CR>"
+
 -- lvim.keys.normal_mode["<C-a>"] = ":AI "
 -- lvim.keys.insert_mode["<C-a>"] = "<Esc>:AI "
 -- lvim.keys.visual_mode["<C-a>"] = ":AI "

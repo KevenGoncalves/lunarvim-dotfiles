@@ -1,21 +1,16 @@
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "markdownlint", filetypes = { "markdown" } },
   {
     command = "eslint_d",
     filetypes = { "typescript", "svelte", "typescriptreact", "javascript", "javascriptreact", "html" },
   },
-  { command = "gitlint",      filetypes = { "git" } },
-  { command = "jsonlint",     filetypes = { "json" } },
-  { command = "yamllint",     filetypes = { "yaml" }, },
-  -- { command = "pylint",       filetypes = { "python" } },
-  -- { command = "pydocstyle",   filetypes = { "python" } },
-  { command = "flake8",       filetypes = { "python" } },
-  -- { command = "mypy",         filetypes = { "python" } },
-  { command = "phpstan",      filetypes = { "php" } },
-  -- { command = "phpmd",        filetypes = { "php" } },
-  -- { command = "phpcs",        filetypes = { "php" } },
-  -- { command = "sqlfluff",     filetypes = { "sql" },     args = { "--dialect mysql" } }
+  { command = "markdownlint",  filetypes = { "markdown" } },
+  { command = "gitlint",       filetypes = { "git" } },
+  { command = "golangci-lint", filetypes = { "go", "gomod" } },
+  { command = "jsonlint",      filetypes = { "json" } },
+  { command = "yamllint",      filetypes = { "yaml" }, },
+  { command = "flake8",        filetypes = { "python" } },
+  { command = "phpstan",       filetypes = { "php" } },
 }
 
 local code_actions = require "lvim.lsp.null-ls.code_actions"
@@ -24,10 +19,6 @@ code_actions.setup {
     exe = "eslint_d",
     filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "astro", "svelte" },
   },
-  -- {
-  --   exe = "sqlls",
-  --   filetypes = { "sql" },
-  -- },
 }
 
 require 'lspconfig'.eslint.setup {

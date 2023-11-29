@@ -44,6 +44,15 @@ require("noice").setup({
       },
       opts = { skip = true },
     },
+    {
+      filter = {
+        event = "msg_show",
+        kind = "",
+        find = "No information available",
+      },
+      opts = { skip = true },
+    },
+
 
   },
   lsp = {

@@ -56,9 +56,6 @@ lvim.plugins = {
     end,
   },
   {
-    "mattn/emmet-vim"
-  },
-  {
     "sindrets/diffview.nvim",
     event = "BufRead",
   },
@@ -207,17 +204,29 @@ lvim.plugins = {
     end
   },
   {
-    "olexsmir/gopher.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
-  {
     "tpope/vim-dadbod",
     dependencies = {
       "kristijanhusak/vim-dadbod-ui",
       -- "kristijanhusak/vim-dadbod-completion"
     },
+  },
+  {
+    'nvim-telescope/telescope-media-files.nvim'
+  },
+  {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require('go').setup({
+        lsp_keymaps = false,
+      })
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", 'gomod' },
+    build = ':lua require("go.install").update_all_sync()'
   }
 }

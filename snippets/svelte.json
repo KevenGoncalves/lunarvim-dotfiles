@@ -8,5 +8,10 @@
     "prefix": "lang-ts",
     "body": "lang='ts'",
     "description": "use the lang ts"
+  },
+  "svelte-console": {
+    "prefix": "s-console",
+    "body": "$: console.log(${1:})",
+    "description": "use the console.log() svelte reactive"
   }
 }
