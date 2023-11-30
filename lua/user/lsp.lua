@@ -23,35 +23,30 @@ require 'lspconfig'.tsserver.setup {
 }
 
 require('go').setup({
-  -- other setups ....
+  -- diagnostic = {  -- set diagnostic to false to disable vim.diagnostic setup
+  --   hdlr = false, -- hook lsp diag handler and send diag to quickfix
+  --   underline = true,
+  --   -- virtual text setup
+  --   virtual_text = { spacing = 0, prefix = '■' },
+  --   signs = true,
+  --   update_in_insert = false,
+  -- },
+  diagnostic = false,
   lsp_cfg = {
     capabilities = capabilities,
     settings = {
       gopls = {
         analyses = {
-          unreachable = true,
-          nilness = true,
-          unusedparams = true,
-          useany = true,
-          unusedwrite = true,
           ST1003 = false,
-          undeclaredname = true,
-          fillreturns = true,
-          nonewvars = true,
-          fieldalignment = false,
-          shadow = true,
         }
       }
-    }
-    -- other setups
+    },
   },
 })
-
 
 require 'lspconfig'.tailwindcss.setup {
   filetypes = { "astro" }
 }
-
 
 -- local util = require 'lspconfig.util'
 -- require 'lspconfig'.dartls.setup {

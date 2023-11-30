@@ -7,15 +7,3 @@ lvim.format_on_save = {
 lvim.builtin.terminal.active = true
 lvim.builtin.dap.active = true
 lvim.builtin.project.manual_mode = true
-
-require('telescope').load_extension('media_files')
-
----@diagnostic disable:redundant-parameter
-require('telescope').setup {
-  extensions = {
-    media_files = {
-      filetypes = { "png", "webp", "jpg", "jpeg", "mp4", "pdf", "svg" },
-      find_cmd = "rg"
-    }
-  },
-}

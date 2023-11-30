@@ -35,7 +35,7 @@ require("catppuccin").setup({
     },
     indent_blankline = {
       enabled = true,
-      scope_color = "lavender",
+      scope_color = "",
       colored_indent_levels = false,
     },
     dap = {

@@ -1,6 +1,5 @@
 lvim.plugins = {
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl",        opts = {} },
-  { "catppuccin/nvim",                     name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "echasnovski/mini.map",
     branch = "stable",
@@ -224,11 +223,27 @@ lvim.plugins = {
     },
     config = function()
       require('go').setup({
+        lsp_codelens = true,
         lsp_keymaps = false
       })
     end,
     event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
     build = ':lua require("go.install").update_all_sync()'
-  }
+  },
+  -- {
+  --   'mikesmithgh/kitty-scrollback.nvim',
+  --   enabled = true,
+  --   lazy = true,
+  --   cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth' },
+  --   event = { 'User KittyScrollbackLaunch' },
+  --   -- version = '*', -- latest stable version, may have breaking changes if major version changed
+  --   -- version = '^2.0.0', -- pin major version, include fixes and features that do not have breaking changes
+  --   config = function()
+  --     require('kitty-scrollback').setup()
+  --   end,
+  -- },
+  -- {
+  --   'nanotee/sqls.nvim'
+  -- }
 }

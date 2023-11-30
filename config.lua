@@ -10,6 +10,7 @@ reload("user.dap")
 reload("user.lsp")
 
 -- plugin imports
+reload("user.plugins.configs")
 reload("user.plugins.lualine")
 reload("user.plugins.bufferline")
 reload("user.plugins.treesitter")
@@ -23,7 +24,7 @@ reload("user.plugins.which-key")
 reload("user.ui.icons")
 reload("user.ui.noice")
 
--- additional Plugins
+-- additional plugins
 reload("user.additional.colorizer")
 reload("user.additional.nvim-navic")
 reload("user.additional.ufo")

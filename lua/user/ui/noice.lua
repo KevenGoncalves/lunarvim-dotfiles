@@ -1,59 +1,56 @@
 require("noice").setup({
   routes = {
     {
+      filter = {
+        event = "msg_show",
+        kind = "",
+        find = "gravado",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        kind = "",
+        find = "yanked",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        kind = "",
+        find = "ago",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        kind = "",
+        find = "antes",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        kind = "",
+        find = "fewer",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        kind = "",
+      },
+      opts = { skip = true },
+    },
+    {
       view = "notify",
       filter = { event = "msg_showmode" },
     },
-    {
-      filter = {
-        event = "msg_show",
-        kind = "",
-        find = "written",
-      },
-      opts = { skip = true },
-    },
-    {
-      filter = {
-        event = "msg_show",
-        kind = "",
-        find = "change",
-      },
-      opts = { skip = true },
-    },
-    {
-      filter = {
-        event = "msg_show",
-        kind = "",
-        find = "lines",
-      },
-      opts = { skip = true },
-    },
-    {
-      filter = {
-        event = "msg_show",
-        kind = "",
-        find = "lines yanked",
-      },
-      opts = { skip = true },
-    },
-    {
-      filter = {
-        event = "msg_show",
-        kind = "",
-        find = "fewer lines",
-      },
-      opts = { skip = true },
-    },
-    {
-      filter = {
-        event = "msg_show",
-        kind = "",
-        find = "No information available",
-      },
-      opts = { skip = true },
-    },
-
-
   },
   lsp = {
     progress = {
@@ -99,7 +96,6 @@ require("noice").setup({
     inc_rename = true,            -- enables an input dialog for inc-rename.nvim
     lsp_doc_border = true,        -- add a border to hover docs and signature help
   },
-
 
   messages = {
     enabled = true,              -- enables the Noice messages UI
