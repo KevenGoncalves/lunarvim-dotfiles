@@ -1,12 +1,15 @@
-lvim.icons.diagnostics.BoldError = ""
-lvim.icons.diagnostics.BoldHint = ""
-lvim.icons.diagnostics.BoldInformation = ""
-lvim.icons.diagnostics.BoldQuestion = ""
-lvim.icons.diagnostics.BoldWarning = ""
-lvim.icons.diagnostics.Debug = ""
-lvim.icons.diagnostics.Error = ""
-lvim.icons.diagnostics.Hint = "󰌶"
-lvim.icons.diagnostics.Information = ""
-lvim.icons.diagnostics.Question = ""
-lvim.icons.diagnostics.Trace = "✎"
-lvim.icons.diagnostics.Warning = ""
+require("NeoComposer").setup({
+  queue_most_recent = true,
+  colors = {
+    red = "#f38ba9",
+    blue = "#89b4fa",
+    green = "#a6e3a1",
+  },
+  keymaps = {
+    play_macro = ".",
+    cycle_next = "<m-]>",
+    cycle_prev = "<m-[>",
+  },
+})
+require('telescope').load_extension('macros')
+require('NeoComposer.ui').status_recording()
