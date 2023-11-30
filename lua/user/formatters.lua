@@ -16,6 +16,5 @@ formatters.setup {
   { command = "markdownlint",    filetypes = { "markdown" } },
   { command = "yamlfmt",         filetypes = { "yaml" } },
   { command = "prismaFmt",       filetypes = { "prisma" } },
-  { command = "pint",            filetypes = { "php" } },
   { command = "blade-formatter", filetypes = { "blade" } },
 }

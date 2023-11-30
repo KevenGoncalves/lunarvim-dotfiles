@@ -1,6 +1,14 @@
 lvim.colorscheme = "catppuccin-mocha"
 
+-- asdas
 require("catppuccin").setup({
+  custom_highlights = function(colors)
+    return {
+      IndentBlanklineContextChar = { fg = colors.text },
+      IndentBlanklineContextStart = { sp = colors.text, style = { "underline" } }
+    }
+  end,
+  flavour = "mocha",
   dim_inactive = {
     enabled = false,
     shade = "dark",
@@ -8,8 +16,13 @@ require("catppuccin").setup({
   },
   integrations = {
     notify = true,
-    mini = true,
+    mini = {
+      enabled = true,
+      indentscope_color = ""
+    },
+    gitsigns = true,
     noice = true,
+    nvimtree = true,
     hop = true,
     harpoon = true,
     ts_rainbow2 = true,
@@ -22,11 +35,38 @@ require("catppuccin").setup({
     },
     indent_blankline = {
       enabled = true,
+      scope_color = "lavender",
       colored_indent_levels = false,
     },
     dap = {
       enabled = true,
       enable_ui = true, -- enable nvim-dap-ui
-    }
+    },
+    native_lsp = {
+      enabled = true,
+      virtual_text = {
+        errors = { "italic" },
+        hints = { "italic" },
+        warnings = { "italic" },
+        information = { "italic" },
+      },
+      underlines = {
+        errors = { "underline" },
+        hints = { "underline" },
+        warnings = { "underline" },
+        information = { "underline" },
+      },
+      inlay_hints = {
+        background = true,
+      },
+    },
   }
 })
+
+
+require("nvim-treesitter.configs").setup {
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false
+  },
+}

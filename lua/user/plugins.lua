@@ -1,5 +1,6 @@
 lvim.plugins = {
-  { "catppuccin/nvim", name = "catppuccin" },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",        opts = {} },
+  { "catppuccin/nvim",                     name = "catppuccin", priority = 1000 },
   {
     "echasnovski/mini.map",
     branch = "stable",
@@ -21,6 +22,7 @@ lvim.plugins = {
           encode = map.gen_encode_symbols.dot('4x2'),
         },
         window = {
+          focusable = true,
           side = 'right',
           width = 10,
           winblend = 15,
@@ -222,7 +224,7 @@ lvim.plugins = {
     },
     config = function()
       require('go').setup({
-        lsp_keymaps = false,
+        lsp_keymaps = false
       })
     end,
     event = { "CmdlineEnter" },

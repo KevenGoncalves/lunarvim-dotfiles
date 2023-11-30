@@ -26,6 +26,23 @@ require('go').setup({
   -- other setups ....
   lsp_cfg = {
     capabilities = capabilities,
+    settings = {
+      gopls = {
+        analyses = {
+          unreachable = true,
+          nilness = true,
+          unusedparams = true,
+          useany = true,
+          unusedwrite = true,
+          ST1003 = false,
+          undeclaredname = true,
+          fillreturns = true,
+          nonewvars = true,
+          fieldalignment = false,
+          shadow = true,
+        }
+      }
+    }
     -- other setups
   },
 })
@@ -36,25 +53,25 @@ require 'lspconfig'.tailwindcss.setup {
 }
 
 
-local util = require 'lspconfig.util'
-require 'lspconfig'.dartls.setup {
-  cmd = { 'dart', 'language-server', '--protocol=lsp' },
-  filetypes = { 'dart' },
-  root_dir = util.root_pattern 'pubspec.yaml',
-  init_options = {
-    onlyAnalyzeProjectsWithOpenFiles = true,
-    suggestFromUnimportedLibraries = true,
-    closingLabels = true,
-    outline = true,
-    flutterOutline = true,
-  },
-  settings = {
-    dart = {
-      completeFunctionCalls = true,
-      showTodos = true,
-    },
-  },
-}
+-- local util = require 'lspconfig.util'
+-- require 'lspconfig'.dartls.setup {
+--   cmd = { 'dart', 'language-server', '--protocol=lsp' },
+--   filetypes = { 'dart' },
+--   root_dir = util.root_pattern 'pubspec.yaml',
+--   init_options = {
+--     onlyAnalyzeProjectsWithOpenFiles = true,
+--     suggestFromUnimportedLibraries = true,
+--     closingLabels = true,
+--     outline = true,
+--     flutterOutline = true,
+--   },
+--   settings = {
+--     dart = {
+--       completeFunctionCalls = true,
+--       showTodos = true,
+--     },
+--   },
+-- }
 
 -- local client_id = vim.lsp.start_client({
 --   name = "samorals",

@@ -21,6 +21,7 @@ lvim.autocommands = {
 
         local map = require('mini.map')
         if vim.tbl_contains(exclude_ft, vim.o.filetype) then
+          ---@diagnostic disable-next-line: inject-field
           vim.b.minimap_disable = true
           map.close()
         elseif vim.o.buftype == "" then
