@@ -16,7 +16,10 @@ lvim.autocommands = {
           "peek",
           "vim",
           "markdownpreview",
-          "markdown"
+          "markdown",
+          "dbui",
+          "dbout",
+          "sql"
         }
 
         local map = require('mini.map')

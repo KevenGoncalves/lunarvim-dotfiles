@@ -1,5 +1,5 @@
 lvim.plugins = {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim",  name = "catppuccin", priority = 1000 },
   {
     "echasnovski/mini.map",
     branch = "stable",
@@ -146,12 +146,6 @@ lvim.plugins = {
     end
   },
   {
-    "folke/zen-mode.nvim",
-    config = function()
-      require("zen-mode").setup {}
-    end
-  },
-  {
     "jose-elias-alvarez/typescript.nvim",
     config = function()
       require("typescript").setup {}
@@ -180,9 +174,6 @@ lvim.plugins = {
     end
   },
   {
-    "jwalton512/vim-blade"
-  },
-  {
     "HiPhish/nvim-ts-rainbow2",
   },
   {
@@ -205,11 +196,21 @@ lvim.plugins = {
     end
   },
   {
-    "tpope/vim-dadbod",
+    'kristijanhusak/vim-dadbod-ui',
     dependencies = {
-      "kristijanhusak/vim-dadbod-ui",
-      -- "kristijanhusak/vim-dadbod-completion"
+      { 'tpope/vim-dadbod',                     lazy = true },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
     },
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
   },
   {
     'nvim-telescope/telescope-media-files.nvim'
@@ -237,8 +238,6 @@ lvim.plugins = {
     lazy = true,
     cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth' },
     event = { 'User KittyScrollbackLaunch' },
-    -- version = '*', -- latest stable version, may have breaking changes if major version changed
-    -- version = '^2.0.0', -- pin major version, include fixes and features that do not have breaking changes
     config = function()
       require('kitty-scrollback').setup()
     end,
@@ -247,8 +246,43 @@ lvim.plugins = {
     "ecthelionvi/NeoComposer.nvim",
     dependencies = { "kkharji/sqlite.lua" },
     opts = {}
+  }, -- Packer
+  {
+    "folke/paint.nvim",
+    config = function()
+      require("paint").setup({
+        ---@diagnostic disable-next-line: undefined-doc-name
+        ---@type PaintHighlight[]
+        highlights = {
+          {
+            filter = { filetype = "go" },
+            pattern = "(@%w*%.?%w*)",
+            hl = "Constant",
+          },
+        },
+      })
+    end,
   },
-  -- {
-  --   'nanotee/sqls.nvim'
-  -- }
+  { 'nanotee/sqls.nvim' },
+  {
+    "zbirenbaum/copilot-cmp",
+    event = "InsertEnter",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup({
+          panel = {
+            auto_refresh = false,
+            enabled = false
+          },
+          suggestion = {
+            enabled = true,
+            auto_trigger = true,
+            debounce = 25,
+          },
+        })
+        require("copilot_cmp").setup()
+      end, 100)
+    end,
+  },
 }

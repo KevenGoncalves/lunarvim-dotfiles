@@ -2,6 +2,13 @@ require("noice").setup({
   routes = {
     {
       filter = {
+        event = "notify",
+        find = "No information available",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
         event = "msg_show",
         kind = "",
         find = "gravado",
@@ -11,7 +18,39 @@ require("noice").setup({
     {
       filter = {
         event = "msg_show",
+        kind = "lua_error",
+        find = "value = ",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
         kind = "",
+        find = "gravado",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        kind = "echo",
+        find = "DB",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        kind = "echo",
+        find = "linhas",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        kind = "echo",
         find = "yanked",
       },
       opts = { skip = true },
@@ -27,7 +66,7 @@ require("noice").setup({
     {
       filter = {
         event = "msg_show",
-        kind = "",
+        kind = "echo",
         find = "antes",
       },
       opts = { skip = true },
@@ -36,7 +75,23 @@ require("noice").setup({
       filter = {
         event = "msg_show",
         kind = "",
+        find = "No",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        kind = "echo",
         find = "fewer",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
+        kind = "echo",
+        find = "more",
       },
       opts = { skip = true },
     },

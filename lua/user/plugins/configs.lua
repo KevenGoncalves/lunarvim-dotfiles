@@ -6,7 +6,8 @@ require("NeoComposer").setup({
     green = "#a6e3a1",
   },
   keymaps = {
-    play_macro = ".",
+    toggle_record = "q",
+    play_macro = "<c-.>",
     cycle_next = "<m-]>",
     cycle_prev = "<m-[>",
   },

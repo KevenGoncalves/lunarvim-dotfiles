@@ -9,6 +9,10 @@
       {
         "language": "svelte",
         "path": "./svelte.json"
+      },
+      {
+        "language": "sql",
+        "path": "./sql.json"
       }
     ]
   }

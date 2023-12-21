@@ -13,8 +13,9 @@ formatters.setup {
       "svelte",
     }
   },
-  { command = "markdownlint",    filetypes = { "markdown" } },
-  { command = "yamlfmt",         filetypes = { "yaml" } },
-  { command = "prismaFmt",       filetypes = { "prisma" } },
-  { command = "blade-formatter", filetypes = { "blade" } },
+  { command = "markdownlint", filetypes = { "markdown" } },
+  { command = "yamlfmt",      filetypes = { "yaml" } },
+  { command = "prismaFmt",    filetypes = { "prisma" } },
+  { command = "autoflake",    filetypes = { "python" } },
+  { command = "autopep8",     filetypes = { "python" } },
 }

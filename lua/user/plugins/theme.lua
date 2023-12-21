@@ -5,7 +5,8 @@ require("catppuccin").setup({
   custom_highlights = function(colors)
     return {
       IndentBlanklineContextChar = { fg = colors.text },
-      IndentBlanklineContextStart = { sp = colors.text, style = { "underline" } }
+      IndentBlanklineContextStart = { sp = colors.text, style = { "underline" } },
+      ["@lsp.type.comment.go"] = { sp = colors.none }
     }
   end,
   flavour = "mocha",
