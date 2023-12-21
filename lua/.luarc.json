@@ -1,0 +1,11 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "lvim",
+        "reload",
+        "get_codelens"
+    ],
+    "diagnostics.disable": [
+        "param-type-mismatch"
+    ]
+}

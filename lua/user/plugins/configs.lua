@@ -12,5 +12,7 @@ require("NeoComposer").setup({
     cycle_prev = "<m-[>",
   },
 })
-require('telescope').load_extension('macros')
+
+local telescope = require('telescope')
+telescope.load_extension('macros')
 require('NeoComposer.ui').status_recording()

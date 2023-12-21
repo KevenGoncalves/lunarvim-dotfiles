@@ -7,3 +7,5 @@ lvim.format_on_save = {
 lvim.builtin.terminal.active = true
 lvim.builtin.dap.active = true
 lvim.builtin.project.manual_mode = false
+
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
