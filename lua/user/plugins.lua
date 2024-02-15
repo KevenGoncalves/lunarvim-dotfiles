@@ -100,10 +100,6 @@ lvim.plugins = {
     end
   },
   {
-    'weilbith/nvim-code-action-menu',
-    cmd = 'CodeActionMenu',
-  },
-  {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
     config = function()
@@ -259,30 +255,67 @@ lvim.plugins = {
             pattern = "(@%w*%.?%w*)",
             hl = "Constant",
           },
+          {
+            filter = { filetype = "go" },
+            pattern = "(json)",
+            hl = "Constant",
+          },
+          {
+            filter = { filetype = "go" },
+            pattern = "(bson)",
+            hl = "Constant",
+          },
+          {
+            filter = { filetype = "go" },
+            pattern = "(yaml)",
+            hl = "Constant",
+          },
+          {
+            filter = { filetype = "go" },
+            pattern = "(toml)",
+            hl = "Constant",
+          },
+          {
+            filter = { filetype = "go" },
+            pattern = "(mapstructure)",
+            hl = "Constant",
+          },
+          {
+            filter = { filetype = "go" },
+            pattern = "(validate)",
+            hl = "Constant",
+          },
+          {
+            filter = { filetype = "typescript" },
+            pattern = "(@%w*%.?%w*)",
+            hl = "Constant",
+          },
+          {
+            filter = { filetype = "javascript" },
+            pattern = "(@%w*%.?%w*)",
+            hl = "Constant",
+          },
         },
       })
     end,
   },
   { 'nanotee/sqls.nvim' },
   {
-    "zbirenbaum/copilot-cmp",
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
     event = "InsertEnter",
-    dependencies = { "zbirenbaum/copilot.lua" },
     config = function()
-      vim.defer_fn(function()
-        require("copilot").setup({
-          panel = {
-            auto_refresh = false,
-            enabled = false
-          },
-          suggestion = {
-            enabled = true,
-            auto_trigger = true,
-            debounce = 25,
-          },
-        })
-        require("copilot_cmp").setup()
-      end, 100)
+      require("copilot").setup({
+        panel = {
+          auto_refresh = false,
+          enabled = false
+        },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 25,
+        },
+      })
     end,
   },
   {
@@ -339,6 +372,34 @@ lvim.plugins = {
   },
   {
     'stevearc/dressing.nvim',
+    opts = {
+      input = {
+        enabled = false
+      }
+    },
+  },
+  {
+    "aznhe21/actions-preview.nvim",
+    config = function()
+      vim.keymap.set({ "v", "n" }, "m", require("actions-preview").code_actions)
+    end,
+  },
+  -- lazy.nvim:
+  {
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      'smoka7/hydra.nvim',
+    },
     opts = {},
+    cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
+    keys = {
+      {
+        mode = { 'v', 'n' },
+        '<Leader>m',
+        '<cmd>MCstart<cr>',
+        desc = 'Create a selection for selected text or word under the cursor',
+      },
+    },
   }
 }

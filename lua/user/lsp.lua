@@ -36,6 +36,10 @@ require 'lspconfig'.tailwindcss.setup {
   filetypes = { "astro" }
 }
 
+require 'lspconfig'.emmet_ls.setup {
+  filetypes = { "typescriptreact", "javascriptreact" }
+}
+
 local lspconfig = require 'lspconfig'
 local configs = require 'lspconfig.configs'
 
