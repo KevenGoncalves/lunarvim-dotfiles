@@ -6,3 +6,4 @@ lvim.builtin.nvimtree.setup.diagnostics.show_on_dirs = true
 lvim.builtin.nvimtree.setup.renderer.root_folder_label = false
 lvim.builtin.nvimtree.setup.update_focused_file = { enable = false, update_cwd = false }
 lvim.builtin.nvimtree.setup.trash.cmd = "trash"
+lvim.builtin.nvimtree.setup.live_filter.prefix = " : "

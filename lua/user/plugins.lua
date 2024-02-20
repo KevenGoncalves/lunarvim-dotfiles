@@ -384,7 +384,6 @@ lvim.plugins = {
       vim.keymap.set({ "v", "n" }, "m", require("actions-preview").code_actions)
     end,
   },
-  -- lazy.nvim:
   {
     "smoka7/multicursors.nvim",
     event = "VeryLazy",
@@ -401,5 +400,5 @@ lvim.plugins = {
         desc = 'Create a selection for selected text or word under the cursor',
       },
     },
-  }
+  },
 }

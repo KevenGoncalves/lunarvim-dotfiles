@@ -10,6 +10,14 @@ require("noice").setup({
     {
       filter = {
         event = "msg_show",
+        kind = "echo",
+        find = "nil",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
         kind = "",
         find = "gravado",
       },

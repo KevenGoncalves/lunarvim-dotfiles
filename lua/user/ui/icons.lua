@@ -165,6 +165,24 @@ require 'nvim-web-devicons'.setup {
       color = "#d7380a",
       cterm_color = 108,
       name = "PostCSS"
+    },
+    mvnw = {
+      icon = "",
+      color = "#d7380a",
+      cterm_color = 109,
+      name = "Maven"
+    },
+    [".project"] = {
+      icon = "󱜤",
+      color = "#ffffff",
+      cterm_color = 110,
+      name = "Project"
+    },
+    ["mvnw.cmd"] = {
+      icon = "",
+      color = "#d7380a",
+      cterm_color = 109,
+      name = "Maven"
     }
 
   },
