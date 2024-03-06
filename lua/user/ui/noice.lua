@@ -113,7 +113,7 @@ require("noice").setup({
   },
   lsp = {
     progress = {
-      enabled = false,
+      enabled = true,
       view = false,
     },
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**

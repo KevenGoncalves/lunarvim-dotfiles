@@ -401,4 +401,7 @@ lvim.plugins = {
       },
     },
   },
+  { 'nanotee/zoxide.vim' },
+  { 'nvim-telescope/telescope.nvim' },
+  { 'jvgrootveld/telescope-zoxide' },
 }
